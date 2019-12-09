@@ -1,0 +1,11 @@
+authenticated.worker.application.list.label.job = Trabajo
+authenticated.worker.application.list.label.creation-moment = Momento de creación
+authenticated.worker.application.list.label.status = Estado
+
+worker.application.list.label.jobs = Trabajo al que se ha aplicado
+worker.application.list.label.reference-number = Número de referencia
+worker.application.form.label.creation-moment = Momento de creación
+worker.application.list.label.status = Estado
+worker.application.list.label.statement = Declaración
+worker.application.list.label.skills = Habilidades
+worker.application.list.label.qualifications = Cualificaciones

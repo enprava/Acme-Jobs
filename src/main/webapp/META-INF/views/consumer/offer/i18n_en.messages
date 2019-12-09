@@ -1,0 +1,18 @@
+consumer.offer.list.label.moment = Moment
+consumer.offer.list.label.title = Title
+consumer.offer.form.label.title = Title
+consumer.offer.form.label.moment = Moment
+consumer.offer.form.label.deadline = Deadline
+consumer.offer.form.label.text = Description
+consumer.offer.form.label.minmoney = Minimum Range
+consumer.offer.form.label.maxmoney = Maximum Range
+consumer.offer.form.label.ticker = Ticker
+consumer.offer.form.button.return = Return
+consumer.offer.form.button.create = Create
+
+consumer.offer.accept = Accept
+consumer.offer.deadline.error = Deadline must be at least seven days ahead
+consumer.offer.ticker.error = Ticker must be unique
+consumer.offer.rangemoney.error = Min. money amount must be greater than max. amount
+consumer.offer.minmoney.currency.error = Currency must be Euros
+consumer.offer.maxmoney.currency.error = Currency must be Euros

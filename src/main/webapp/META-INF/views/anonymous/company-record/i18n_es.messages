@@ -1,0 +1,11 @@
+anonymous.company-records.list.label.name = Nombre
+anonymous.company-records.list.label.sector= Sector
+anonymous.company-records.list.label.description = Descripción
+anonymous.company-records.list.label.web = Página web
+anonymous.company-records.list.label.email = Email
+anonymous.company-records.list.label.stars = Estrellas
+anonymous.company-records.list.label.ceoname = Nombre del CEO
+anonymous.company-records.list.label.phone = Teléfono
+anonymous.company-records.list.label.incorporated = Incorporada
+
+anonymous.company-records.button.return= Volver

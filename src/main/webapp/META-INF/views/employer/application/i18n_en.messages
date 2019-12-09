@@ -1,0 +1,12 @@
+employer.application.list.label.job = Job
+employer.application.list.label.creation-moment = Creation moment
+employer.application.list.label.status = Status
+
+employer.application.form.label.job = Job
+employer.application.form.label.worker = Worker
+employer.application.form.label.reference-number = Reference number
+employer.application.form.label.creation-moment = Creation moment
+employer.application.form.label.status = Status
+employer.application.form.label.statement = Statement
+employer.application.form.label.skills = Skills
+employer.application.form.label.qualifications = Qualifications

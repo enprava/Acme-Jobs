@@ -1,0 +1,11 @@
+consumer.offer.list.label.moment = Momento
+consumer.offer.list.label.title = Titulo
+consumer.offer.form.label.title = Titulo
+consumer.offer.form.label.moment = Momento
+consumer.offer.form.label.deadline = Fecha Límite
+consumer.offer.form.label.text = Descripción
+consumer.offer.form.label.minmoney = Rango mínimo
+consumer.offer.form.label.maxmoney = Rango máximo
+consumer.offer.form.label.ticker = Ticker
+consumer.offer.form.button.return = Volver
+consumer.offer.form.button.create = Crear

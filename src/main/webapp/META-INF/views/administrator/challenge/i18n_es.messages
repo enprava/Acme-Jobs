@@ -1,0 +1,25 @@
+administrator.challenge.list.label.title = Título
+administrator.challenge.list.label.deadline = Fecha límite
+administrator.challenge.list.label.reward-bronze = Recompensa de bronce
+administrator.challenge.list.label.reward-silver = Recompensa de plata
+administrator.challenge.list.label.reward-gold = Recompensa de oro
+
+administrator.challenge.form.label.title = Título
+administrator.challenge.form.label.deadline = Fecha Límite
+administrator.challenge.form.label.description = Descripción
+administrator.challenge.form.label.goal-bronze = Meta de bronce
+administrator.challenge.form.label.reward-bronze = Recompensa de bronce
+administrator.challenge.form.label.goal-silver = Meta de plata
+administrator.challenge.form.label.reward-silver = Recompensa de plata
+administrator.challenge.form.label.goal-gold = Meta de oro
+administrator.challenge.form.label.reward-gold = Recompensa de oro
+	
+	
+administrator.challenge.form.button.create = Crear
+administrator.challenge.form.button.return = Volver
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.delete = Borrar
+
+administrator.challenge.form.error.invalidmoney = Solo se permiten euros
+administrator.challenge.form.error.invaliddeadline = La fecha límite debe ser como mínimo dentro de 7 días
+administrator.challenge.form.error.invalidreward = Esta recompensa debe ser mayor a la de la anterior meta

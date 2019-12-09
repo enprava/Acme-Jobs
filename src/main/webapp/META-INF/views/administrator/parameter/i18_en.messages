@@ -1,0 +1,5 @@
+administrator.parameter.form.label.spamthreshold = Spamthreshold:
+administrator.parameter.form.label.spamwords = Spam words:
+administrator.parameter.form.button.return = Return
+administrator.parameter.form.button.update = Update
+ 

@@ -1,0 +1,9 @@
+authenticated.message-thread.list.label.title = Título
+authenticated.message-thread.list.label.moment = Momento
+
+authenticated.message-thread.form.label.title = Título
+authenticated.message-thread.form.label.users = Usuarios
+authenticated.message-thread.form.label.moment = Momento
+
+authenticated.message-thread.form.label.return = Volver
+authenticated.message-thread.form.button.messages = Mensajes

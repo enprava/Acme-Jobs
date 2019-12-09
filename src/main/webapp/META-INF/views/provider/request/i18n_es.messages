@@ -1,0 +1,28 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+provider.request.list.label.reward = Recompensa
+provider.request.list.label.title = Titulo
+provider.request.list.label.deadline = Fecha limite
+
+provider.request.form.label.moment = Momento:
+provider.request.form.label.title = Titulo:
+provider.request.form.label.deadline = Fecha limite:
+provider.request.form.label.text = Texto:
+provider.request.form.label.ticker = Etiqueta:
+provider.request.form.button.return = Volver
+provider.request.form.label.reward = Recompensa:
+
+provider.request.form.button.create = Crear
+provider.request.accept = Aceptar
+provider.request.deadline.error = La fecha limite debe tener un plazo mínimo de una semana
+provider.request.ticker.error = El Ticker debe ser unico
+provider.request.reward.currency.error = La recompensa debe estar dada en Euros
+provider.request.error.accept= Debe aceptar la licencia

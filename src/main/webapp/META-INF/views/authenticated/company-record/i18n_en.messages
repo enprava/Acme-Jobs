@@ -1,0 +1,10 @@
+authenticated.company-records.list.label.name = Name
+authenticated.company-records.list.label.sector= Sector
+authenticated.company-records.list.label.description = Description
+authenticated.company-records.list.label.web = Website
+authenticated.company-records.list.label.email = Email
+authenticated.company-records.list.label.stars = Stars
+authenticated.company-records.list.label.ceoname = CEO's name
+authenticated.company-records.list.label.phone = Phone
+authenticated.company-records.list.label.incorporated = Incorporada
+authenticated.company-records.form.button.return= Return

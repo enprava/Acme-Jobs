@@ -1,0 +1,8 @@
+employer.duty.list.label.title = Titulo
+employer.duty.list.label.percentage = Porcentage
+
+employer.duty.form.label.title = Titulo
+employer.duty.form.label.percentage = Porcentage
+employer.duty.form.label.description =  Descripción
+
+employer.duty.form.button.return = Volver

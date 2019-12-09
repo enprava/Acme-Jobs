@@ -1,0 +1,10 @@
+authenticated.offer.list.label.moment = Momento
+authenticated.offer.list.label.title = Titulo
+authenticated.offer.form.label.title = Titulo
+authenticated.offer.form.label.moment = Momento
+authenticated.offer.form.label.deadline = Fecha Límite
+authenticated.offer.form.label.text = Descripción
+authenticated.offer.form.label.minmoney = Rango mínimo
+authenticated.offer.form.label.maxmoney = Rango máximo
+authenticated.offer.form.label.ticker = Ticker
+authenticated.offer.form.button.return = Volver
