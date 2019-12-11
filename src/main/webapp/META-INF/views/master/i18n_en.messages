@@ -99,7 +99,8 @@ master.menu.challenge.create = Create Challenge
 # master.menu.auditor ####################################################
  
  master.menu.auditor = Auditor
- master.menu.auditor.job.list= Job list
+ master.menu.auditor.job.listmine= List my jobs
+ master.menu.auditor.job.listmine= List other jobs
 
 # master.footer ###############################################################
 

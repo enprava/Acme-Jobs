@@ -4,17 +4,16 @@ package acme.features.auditor.job;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.stereotype.Service;
 
+import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuditorJobListService implements AbstractListService<Auditor, Job> {
+public class AuditorJobListMineService implements AbstractListService<Auditor, Job> {
 
 	@Autowired
 	AuditorJobRepository repository;
@@ -32,17 +31,15 @@ public class AuditorJobListService implements AbstractListService<Auditor, Job> 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline");
+		request.unbind(entity, model, "reference", "deadline", "title");
 	}
 
 	@Override
 	public Collection<Job> findMany(final Request<Job> request) {
-		assert request != null;
+		int auditorId;
 		Collection<Job> res;
-		Principal principal;
-
-		principal = request.getPrincipal();
-		res = this.repository.findManyByAuditorId(principal.getActiveRoleId());
+		auditorId = request.getPrincipal().getActiveRoleId();
+		res = this.repository.findManyByAuditorId(auditorId);
 		return res;
 	}
 

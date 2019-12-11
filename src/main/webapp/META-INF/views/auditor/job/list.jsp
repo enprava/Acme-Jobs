@@ -3,8 +3,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="auditor.job.list.label.reference" path="reference"witdh="10%"/>
-	<acme:list-column code="auditor.job.list.label.deadline" path="deadline"witdh="10%"/>
-	<acme:list-column code="auditor.job.list.label.title" path="reference"witdh="80%"/>
-	
+	<acme:list-column code="auditor.job.list.label.reference" path="reference" width="10%"/>
+	<acme:list-column code="auditor.job.list.label.deadline" path="deadline" width="10%"/>
+	<acme:list-column code="auditor.job.list.label.title" path="title" width="80%"/>
 </acme:list>
