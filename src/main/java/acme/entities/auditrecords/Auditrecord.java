@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AuditRecord extends DomainEntity {
+public class Auditrecord extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
 	@NotBlank

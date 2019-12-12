@@ -10,7 +10,7 @@
 	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="auditor.job.form.label.description" path="description"/>
 	
-	<acme:form-submit method="get" code="auditor.job.form.button.joblist" action="auditor/auditrecord/list-by-job?jobId=${id}"/>
+	<acme:form-submit method="get" code="auditor.job.form.button.joblist" action="/auditor/auditrecord/list-by-job?jobId=${id}"/>
 	<acme:form-return code="auditor.job.form.button.return"/>
 	
 </acme:form>

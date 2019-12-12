@@ -6,15 +6,15 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.auditrecords.AuditRecord;
+import acme.entities.auditrecords.Auditrecord;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuditorAuditRecordRepository extends AbstractRepository {
 
-	@Query("select a from AuditRecord a where a.id = ?1")
-	AuditRecord findOneAuditRecordById(int id);
+	@Query("select a from Auditrecord a where a.id = ?1")
+	Auditrecord findOneAuditRecordById(int id);
 
-	@Query("select a from AuditRecord a where a.job.id = ?1")
-	Collection<AuditRecord> findManyAuditRecordByJobId(int jobId);
+	@Query("select a from Auditrecord a where a.job.id = ?1")
+	Collection<Auditrecord> findManyAuditRecordByJobId(int jobId);
 }

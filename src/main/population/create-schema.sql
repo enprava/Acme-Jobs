@@ -37,7 +37,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `audit_record` (
+    create table `auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `firm` varchar(255),
+        `responsabilty_statement` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditrecord` (
        `id` integer not null,
         `version` integer not null,
         `body` varchar(255),
@@ -46,15 +55,6 @@
         `title` varchar(255),
         `auditor_id` integer not null,
         `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `auditor` (
-       `id` integer not null,
-        `version` integer not null,
-        `user_account_id` integer,
-        `firm` varchar(255),
-        `responsabilty_statement` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -296,20 +296,20 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        foreign key (`worker_id`) 
        references `worker` (`id`);
 
-    alter table `audit_record` 
-       add constraint `FKdcrrgv6rkfw2ruvdja56un4ji` 
-       foreign key (`auditor_id`) 
-       references `auditor` (`id`);
-
-    alter table `audit_record` 
-       add constraint `FKlbvbyimxf6pxvbhkdd4vfhlnd` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
-
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `auditrecord` 
+       add constraint `FKditgyx355sc4ye86w7tj22cq6` 
+       foreign key (`auditor_id`) 
+       references `auditor` (`id`);
+
+    alter table `auditrecord` 
+       add constraint `FKa5p4w0gnuwmtb07juvrg8ptn6` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 

@@ -627,7 +627,7 @@
 	<!-- Audits -->
 
 
-	<bean id="audit1" class="acme.entities.auditrecords.AuditRecord">
+	<bean id="audit1" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="title1" />
 		<property name="status" value="DRAFT" />
 		<property name="moment" value="2019/09/24 10:35" />
@@ -635,7 +635,7 @@
 		<property name="auditor" ref="auditor1Auditor" />
 		<property name="job" ref="job1"/>
 	</bean>
-	<bean id="audit2" class="acme.entities.auditrecords.AuditRecord">
+	<bean id="audit2" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="title2" />
 		<property name="status" value="DRAFT" />
 		<property name="moment" value="2019/08/16 10:35" />
@@ -643,7 +643,7 @@
 		<property name="auditor" ref="auditor1Auditor" />
 		<property name="job" ref="job2"/>
 	</bean>
-	<bean id="audit3" class="acme.entities.auditrecords.AuditRecord">
+	<bean id="audit3" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="title3" />
 		<property name="status" value="PUBLISHED" />
 		<property name="moment" value="2019/01/03 22:00" />
@@ -651,7 +651,7 @@
 		<property name="auditor" ref="auditor1Auditor" />
 		<property name="job" ref="job3"/>
 	</bean>
-	<bean id="audit4" class="acme.entities.auditrecords.AuditRecord">
+	<bean id="audit4" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="title4" />
 		<property name="status" value="DRAFT" />
 		<property name="moment" value="2019/10/07 10:30" />
@@ -659,7 +659,7 @@
 		<property name="auditor" ref="auditor2Auditor" />
 		<property name="job" ref="job2"/>
 	</bean>
-	<bean id="audit5" class="acme.entities.auditrecords.AuditRecord">
+	<bean id="audit5" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="title5" />
 		<property name="status" value="PUBLISHED" />
 		<property name="moment" value="2019/09/03 9:05" />

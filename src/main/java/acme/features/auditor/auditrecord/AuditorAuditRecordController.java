@@ -8,14 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
-import acme.entities.auditrecords.AuditRecord;
+import acme.entities.auditrecords.Auditrecord;
 import acme.entities.roles.Auditor;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
 @RequestMapping("/auditor/auditrecord/")
-public class AuditorAuditRecordController extends AbstractController<Auditor, AuditRecord> {
+public class AuditorAuditRecordController extends AbstractController<Auditor, Auditrecord> {
 
 	@Autowired
 	private AuditorAuditRecordShowService		showservice;
