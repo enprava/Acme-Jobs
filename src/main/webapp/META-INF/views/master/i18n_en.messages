@@ -68,6 +68,7 @@ master.menu.consumer.create.offer= Create offer
 
 master.menu.worker = Worker
 master.menu.worker.listApplication = Application list
+master.menu.worker.job.list = Jobs
 
 # master.menu.user-account ####################################################
 

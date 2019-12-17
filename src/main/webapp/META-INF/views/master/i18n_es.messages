@@ -69,6 +69,7 @@ master.menu.consumer.create.offer= Crear oferta
 
 master.menu.worker = Trabajador
 master.menu.worker.listApplication = Listado de aplicaciones
+master.menu.worker.job.list = Trabajos
 
 # master.menu.challenge ####################################################
 

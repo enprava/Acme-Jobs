@@ -1,13 +1,14 @@
-authenticated.job.list.label.reference = Reference
-authenticated.job.list.label.deadline = Deadline
-authenticated.job.list.label.title = Title
+worker.job.list.label.reference = Reference
+worker.job.list.label.deadline = Deadline
+worker.job.list.label.title = Title
 
-authenticated.job.form.label.reference = Reference
-authenticated.job.form.label.title = Title
-authenticated.job.form.label.deadline = Deadline
-authenticated.job.form.label.salary = Salary
-authenticated.job.form.label.moreInfo = More Info
-authenticated.job.form.label.description = Description
+worker.job.form.label.reference = Reference
+worker.job.form.label.title = Title
+worker.job.form.label.deadline = Deadline
+worker.job.form.label.salary = Salary
+worker.job.form.label.moreInfo = More Info
+worker.job.form.label.description = Description
 
-authenticated.job.form.label.duties = Duties
-authenticated.job.form.button.return = Return
+worker.job.form.label.duties = Duties
+worker.jobApp.form.create = Apply for job
+worker.job.form.button.return = Return
