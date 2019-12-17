@@ -10,10 +10,12 @@
     <acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
     <acme:form-textarea code="employer.job.form.label.description" path="description" />
     
+    <jstl:if test="${command != 'create'}">
     <acme:form-select code="employer.job.form.label.finalMode" path="finalMode">
     	<acme:form-option code="employer.job.form.label.false" value="false"/>
     	<acme:form-option code="employer.job.form.label.true" value="true"/>
     </acme:form-select>
+    </jstl:if>
     
     <jstl:if test="${command != 'create'}">
     <acme:form-submit method="get" code="employer.job.form.label.duties" action="/employer/duty/list-for-job?jobId=${id}"/>

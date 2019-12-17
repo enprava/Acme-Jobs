@@ -1,9 +1,12 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -79,8 +82,15 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		int jobId = request.getModel().getInteger("id");
 
 		if (entity.isFinalMode()) {
-			Double sum = this.repository.sumDutiesPercentageByJobId(jobId);
-			errors.state(request, sum == 100, "reference", "employer.job.form.error.dutiesNotSum100");
+			Collection<Duty> duties = this.repository.findManyDutiesByJobId(jobId);
+
+			if (!duties.isEmpty()) {
+				Double sum = this.repository.sumDutiesPercentageByJobId(jobId);
+				errors.state(request, sum == 100, "reference", "employer.job.form.error.dutiesNotSum100");
+			} else {
+				errors.state(request, duties != null, "reference", "employer.job.form.error.dutiesIsNull");
+			}
+
 		}
 
 	}
