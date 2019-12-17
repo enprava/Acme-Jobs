@@ -1,0 +1,6 @@
+employer.application.accept.form.label.reference-number = Número de referencia
+employer.application.accept.form.label.status = Estado
+employer.application.accept.form.label.justification = Justificación
+
+employer.application.accept.form.button.update = Aceptar aplicación
+employer.application.accept.form.button.return = Volver

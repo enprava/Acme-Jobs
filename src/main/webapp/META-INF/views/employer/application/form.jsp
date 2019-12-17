@@ -18,10 +18,14 @@
 <acme:form readonly="true">
 	<acme:form-textbox code="employer.application.form.label.reference-number" path="referenceNumber"/>
 	<acme:form-textarea code="employer.application.form.label.status" path="status"/>
-	<acme:form-textarea code="employer.application.form.label.statement" path="statement"/>
-	<acme:form-textarea code="employer.application.form.label.skills" path="skills"/>
-	<acme:form-textbox code="employer.application.form.label.qualifications" path="qualifications"/>
+	<acme:form-textarea test ="${command == 'show'}" code="employer.application.form.label.statement" path="statement"/>
+	<acme:form-textarea test ="${command == 'show'}" code="employer.application.form.label.skills" path="skills"/>
+	<acme:form-textbox test ="${command == 'show'}" code="employer.application.form.label.qualifications" path="qualifications"/>
+	<acme:form-textarea test ="${command == 'update'}" code="employer.application.accept.form.label.justificatio" path="justification"/>
 	
+	<jstl:if test="${status == 'pending'}">
+		<acme:form-submit method="get" code="employer.application.update.form.label.submit" action="/employer/appliction/update"/>
+	</jstl:if>
 	
 	<acme:form-return code="authenticated.challenge.form.button.return"/>
 </acme:form>

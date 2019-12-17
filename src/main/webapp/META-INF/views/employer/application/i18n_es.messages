@@ -1,4 +1,5 @@
 employer.application.list.label.job = Trabajo
+employer.application.list.label.reference = Referencia
 employer.application.list.label.creation-moment = Momento de creación
 employer.application.list.label.status = Estado
 
@@ -10,3 +11,5 @@ employer.application.form.label.status = Estado
 employer.application.form.label.statement = Declaración
 employer.application.form.label.skills = Habilidades
 employer.application.form.label.qualifications = Cualificaciones
+employer.application.form.label.justification = Justificación
+employer.application.update.form.label.submit = Aceptar/Rechazar application

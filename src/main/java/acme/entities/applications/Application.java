@@ -45,6 +45,8 @@ public class Application extends DomainEntity {
 	@NotBlank
 	private String				skills;
 
+	private String				justification;
+
 	@NotBlank
 	private String				qualifications;
 

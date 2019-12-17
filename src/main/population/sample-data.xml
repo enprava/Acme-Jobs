@@ -504,6 +504,7 @@
 	 <bean id="application1" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title1"/>
 		<property name="status" value="rejected"/>
+		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/01/24 11:35"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill1, skill3"/>
@@ -515,6 +516,7 @@
 	<bean id="application2" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title2"/>
 		<property name="status" value="pending"/>
+		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/09/24 10:00"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill2"/>
@@ -526,6 +528,7 @@
 	<bean id="application3" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title3"/>
 		<property name="status" value="pending"/>
+		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/10/24 10:00"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill1"/>
@@ -537,6 +540,7 @@
 	<bean id="application4" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title4"/>
 		<property name="status" value="accepted"/>
+		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/04/04 12:05"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill4"/>

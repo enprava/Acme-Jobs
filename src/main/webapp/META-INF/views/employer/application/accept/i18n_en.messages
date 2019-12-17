@@ -1,0 +1,6 @@
+employer.application.accept.form.label.reference-number = Reference number
+employer.application.accept.form.label.status = Status
+employer.application.accept.form.label.justification = Justification
+
+employer.application.accept.form.button.update = Update
+employer.application.accept.form.button.return = Return
