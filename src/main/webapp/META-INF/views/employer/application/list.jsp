@@ -4,7 +4,8 @@
 
 <acme:list>
 	
-	<acme:list-column code="employer.application.list.label.creation-moment" path="creationMoment" width="50%"/>
-	<acme:list-column code="employer.application.list.label.status" path="status" width="50%"/>
+	<acme:list-column code="employer.application.list.label.reference" path="referenceNumber" width="30%"/>
+	<acme:list-column code="employer.application.list.label.creation-moment" path="creationMoment" width="40%"/>
+	<acme:list-column code="employer.application.list.label.status" path="status" width="30%"/>
 
 </acme:list>
