@@ -25,7 +25,13 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 	@Override
 	public boolean authorise(final Request<Worker> request) {
 		assert request != null;
-		return true;
+		boolean result = false;
+
+		if (request.getPrincipal().hasRole(Worker.class)) {
+			result = true;
+		}
+
+		return result;
 	}
 
 	@Override

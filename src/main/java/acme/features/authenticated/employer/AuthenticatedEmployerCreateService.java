@@ -29,7 +29,14 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	public boolean authorise(final Request<Employer> request) {
 
 		assert request != null;
-		return true;
+
+		boolean result = true;
+
+		if (request.getPrincipal().hasRole(Employer.class)) {
+			result = false;
+		}
+
+		return result;
 
 	}
 

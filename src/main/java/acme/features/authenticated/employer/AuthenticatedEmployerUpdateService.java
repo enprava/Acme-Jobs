@@ -25,7 +25,13 @@ public class AuthenticatedEmployerUpdateService implements AbstractUpdateService
 	@Override
 	public boolean authorise(final Request<Employer> request) {
 		assert request != null;
-		return true;
+		boolean result = false;
+
+		if (request.getPrincipal().hasRole(Employer.class)) {
+			result = true;
+		}
+
+		return result;
 	}
 
 	@Override
