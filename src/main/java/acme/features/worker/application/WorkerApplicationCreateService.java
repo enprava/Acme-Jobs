@@ -37,7 +37,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		Date now = new Date();
 		Boolean bool = date.after(now);
 
-		result = job.isFinalMode() && bool == true;
+		result = job.isFinalMode() && bool == true && request.getPrincipal().hasRole(Worker.class);
 		return result;
 
 	}
