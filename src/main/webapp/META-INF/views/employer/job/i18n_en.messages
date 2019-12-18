@@ -22,3 +22,4 @@ employer.job.form.button.return = Return
 employer.job.form.error.invaliddeadline = Invalid Deadline
 employer.job.form.error.spamDescription = The description is Spam
 employer.job.form.error.referenceInUse = The reference is already in use
+employer.job.form.error.dutiesNotSum100 = The duties' percentage must sum 100
