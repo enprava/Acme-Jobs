@@ -23,11 +23,14 @@ public class WorkerApplicationController extends AbstractController<Worker, Appl
 	@Autowired
 	private WorkerApplicationListMineService	listMineService;
 
+	@Autowired
+	private WorkerApplicationCreateService		createApplicationService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-
+		super.addBasicCommand(BasicCommand.CREATE, this.createApplicationService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 	}
 

@@ -9,7 +9,7 @@
     <acme:form-money code="authenticated.job.form.label.salary" path="salary" />
     <acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo" />
     <acme:form-textarea code="authenticated.job.form.label.description" path="description" />
-    <acme:form-submit method="get" code="authenticated.job.form.label.duties" action="/authenticated/duty/list-for-job?jobId=${id}"/>
+    <acme:form-submit method="get" code="authenticated.job.form.label.duties" action="/authenticated/duty/list-for-job?jobId=${id}"/> 
     
     <acme:form-return code="authenticated.job.form.button.return" />
 </acme:form>

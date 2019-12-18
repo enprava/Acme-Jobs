@@ -4,6 +4,7 @@ package acme.features.worker.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
@@ -11,7 +12,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
+public class WorkerJobShowService2 implements AbstractShowService<Worker, Job> {
 
 	@Autowired
 	WorkerJobRepository repository;
@@ -43,10 +44,12 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert request != null;
 
 		Job result;
+		Application aux;
 		int id;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
+		id = request.getModel().getInteger("applicationId");
+		aux = this.repository.findOneJobByApplicationId(id);
+		result = aux.getJob();
 		return result;
 	}
 
