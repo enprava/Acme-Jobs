@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-import acme.entities.applications.TipoStatus;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
@@ -79,7 +78,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		job = this.repository.findJobPublished(jobId);
 		result.setJob(job);
 
-		TipoStatus status = TipoStatus.pending;
+		String status = "pending";
 		result.setStatus(status);
 
 		Worker worker;
