@@ -20,6 +20,7 @@
     <jstl:if test="${command != 'create'}">
     <acme:form-submit method="get" code="employer.job.form.label.duties" action="/employer/duty/list-for-job?jobId=${id}"/>
     </jstl:if>
+
     
     <acme:form-submit test="${command == 'show'}"
   		code="employer.job.form.button.update"
