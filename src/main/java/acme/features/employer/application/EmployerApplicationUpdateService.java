@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-import acme.entities.applications.TipoStatus;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -22,7 +22,18 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		return true;
+		boolean result;
+		int applicationId;
+		Application application;
+		Employer employer;
+		Principal principal;
+		applicationId = request.getModel().getInteger("id");
+		application = this.repository.findOneApplicationById(applicationId);
+		employer = application.getJob().getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getId() == principal.getActiveRoleId();
+		result = result && application.getStatus().equals("pending");
+		return result;
 	}
 
 	@Override
@@ -31,7 +42,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "referenceNumber", "creationMoment", "statement", "skills", "qualifications", "worker", "job");
 
 	}
 
@@ -41,7 +52,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "justification");
+		request.unbind(entity, model, "status", "justification");
 	}
 
 	@Override
@@ -65,9 +76,9 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert errors != null;
 		boolean NotBlankJustification;
 		NotBlankJustification = false;
-		if (!errors.hasErrors("justification") && entity.getStatus() == TipoStatus.rejected) {
-			NotBlankJustification = entity.getJustification().trim().length() == 0 || entity.getJustification() != null;
-			errors.state(request, NotBlankJustification, "justification", "employer.application.accept.form.error.invalidjustification");
+		if (request.getModel().getString("status").equals("rejected")) {
+			NotBlankJustification = !request.getModel().getString("justification").trim().equals("");
+			errors.state(request, NotBlankJustification, "status", "employer.application.accept.form.error.invalidjustification");
 
 		}
 

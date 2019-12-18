@@ -37,7 +37,7 @@ public class Application extends DomainEntity {
 	private Date				creationMoment;
 
 	@NotNull
-	private TipoStatus			status;
+	private String				status;
 
 	@NotBlank
 	private String				statement;

@@ -10,6 +10,7 @@
     <acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
     <acme:form-textarea code="employer.job.form.label.description" path="description" />
     <acme:form-submit method="get" code="employer.job.form.label.duties" action="/employer/duty/list-for-job?jobId=${id}"/>
+    <acme:menu-suboption code="worker.job.form.label.application" action="/worker/application/create?jobId=${id}"/>
     
     <acme:form-return code="employer.job.form.button.return" />
 </acme:form>
