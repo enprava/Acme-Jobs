@@ -142,7 +142,7 @@
 	</bean>
 	
 	<bean id="investorRecord02" class="acme.entities.investorRecords.InvestorRecord">
-	  <property name="name" value="investorRecord01"/>
+	  <property name="name" value="investorRecord02"/>
   	<property name="sector" value="Services"/>
   	<property name="investingStatement" value="Lo siento, no se que hay que poner aquí"></property>
   	<property name="stars" value="5"/>
@@ -414,7 +414,6 @@
 		<property name="reference" value="EMP2-JOB3"/>
 		<property name="title" value="Title 3"/>
 		<property name="deadline" value="2040/12/11 23:59"/>
-
 		<property name="salary" value="€ 20,000.00"/>
 		<property name="description" value="Lorem ipsum sit dolor amet"/>
 		<property name="moreInfo" value="http://www.example.com"/>
