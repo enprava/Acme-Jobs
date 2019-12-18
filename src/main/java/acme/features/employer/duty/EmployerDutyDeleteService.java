@@ -1,14 +1,10 @@
 
-package acme.features.employer.job;
-
-import java.util.Collection;
+package acme.features.employer.duty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Application;
 import acme.entities.duties.Duty;
-import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -16,88 +12,80 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class EmployerJobDeleteService implements AbstractDeleteService<Employer, Job> {
+public class EmployerDutyDeleteService implements AbstractDeleteService<Employer, Duty> {
 
 	@Autowired
-	private EmployerJobRepository repository;
+	private EmployerDutyRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Job> request) {
+	public boolean authorise(final Request<Duty> request) {
 		// TODO Auto-generated method stub
 		assert request != null;
-
 		boolean result = false;
 		boolean aux = false;
-		boolean aux2 = false;
-		int jobId;
-
-		jobId = request.getModel().getInteger("id");
-		Collection<Application> applications = this.repository.applicationsByJobId(jobId);
-		aux = applications.isEmpty();
 
 		if (request.getPrincipal().hasRole(Employer.class)) {
-			aux2 = true;
+			aux = true;
 		}
-		result = aux && aux2;
+
+		result = aux;
 		return result;
 	}
 
 	@Override
-	public void bind(final Request<Job> request, final Job entity, final Errors errors) {
+	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
 		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "finalMode");
+		request.bind(entity, errors);
+
 	}
 
 	@Override
-	public void unbind(final Request<Job> request, final Job entity, final Model model) {
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
 		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline");
+		request.unbind(entity, model, "title", "percentage", "description");
+
 	}
 
 	@Override
-	public Job findOne(final Request<Job> request) {
+	public Duty findOne(final Request<Duty> request) {
 		// TODO Auto-generated method stub
 		assert request != null;
 
-		Job result;
+		Duty result;
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
+		result = this.repository.findOneDutyById(id);
 
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
+	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
 		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
+		errors.state(request, !entity.getJob().isFinalMode(), "description", "employer.duty.form.error.jobInFinalMode");
+
 	}
 
 	@Override
-	public void delete(final Request<Job> request, final Job entity) {
+	public void delete(final Request<Duty> request, final Duty entity) {
 		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 
-		int jobId;
-
-		jobId = request.getModel().getInteger("id");
-		Collection<Duty> duties = this.repository.findManyDutiesByJobId(jobId);
-
-		this.repository.deleteAll(duties);
 		this.repository.delete(entity);
 
 	}

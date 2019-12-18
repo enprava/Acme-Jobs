@@ -8,6 +8,17 @@ employer.job.form.label.deadline = Fecha Límite
 employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más Info
 employer.job.form.label.description = Descripción
+employer.job.form.label.finalMode = Publicada
+employer.job.form.label.false = No
+employer.job.form.label.true = Si
 
-employer.job.form.label.duties = Responsabilidades
+employer.job.form.button.duties = Responsabilidades
+employer.job.form.button.createDuties = Crear una responsabilidad
+employer.job.form.button.create = Crear
+employer.job.form.button.update = Actualizar
+employer.job.form.button.delete = Borrar
 employer.job.form.button.return = Volver
+
+employer.job.form.error.invaliddeadline = Fecha de fin invalida
+employer.job.form.error.spamDescription = La descripción es Spam
+employer.job.form.error.referenceInUse = La referencia esta en uso

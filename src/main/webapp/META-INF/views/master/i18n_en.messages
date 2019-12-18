@@ -58,6 +58,7 @@ master.menu.provider.createRequest = Create Request
 master.menu.employer = Employer
 master.menu.employer.listJobs = Jobs
 master.menu.employer.listapplications = Application list
+master.menu.employer.createJob = Create Job
 
 # master.menu.consumer ##########################################################
 
