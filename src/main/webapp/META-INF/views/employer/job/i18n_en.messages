@@ -8,6 +8,17 @@ employer.job.form.label.deadline = Deadline
 employer.job.form.label.salary = Salary
 employer.job.form.label.moreInfo = More Info
 employer.job.form.label.description = Description
+employer.job.form.label.finalMode = Publish
+employer.job.form.label.false = No
+employer.job.form.label.true = Yes
 
-employer.job.form.label.duties = Duties
+employer.job.form.button.duties = Duties
+employer.job.form.button.createDuties = Create Duty
+employer.job.form.button.create = Create
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
 employer.job.form.button.return = Return
+
+employer.job.form.error.invaliddeadline = Invalid Deadline
+employer.job.form.error.spamDescription = The description is Spam
+employer.job.form.error.referenceInUse = The reference is already in use

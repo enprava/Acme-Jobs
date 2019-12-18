@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.applications.Application;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
 import acme.framework.repositories.AbstractRepository;
 
@@ -32,5 +33,11 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select d from Duty d where d.job.id = ?1")
 	Collection<Duty> findManyDutiesByJobId(int jobId);
+
+	@Query("select p from Parameter p")
+	Parameter findParameters();
+
+	@Query("select j from Job j")
+	Collection<Job> findAllJobs();
 
 }

@@ -64,6 +64,7 @@ master.menu.employer.listapplications = Listado de aplicaciones
 
 master.menu.consumer = Consumidor
 master.menu.consumer.create.offer= Crear oferta
+master.menu.employer.createJob = Crear trabajo
 
 # master.menu.worker ##########################################################
 

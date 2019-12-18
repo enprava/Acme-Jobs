@@ -2,6 +2,7 @@
 package acme.features.employer.job;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -28,7 +30,16 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		// TODO Auto-generated method stub
 		assert request != null;
 
-		return true;
+		boolean result = false;
+		boolean aux = false;
+
+		if (request.getPrincipal().hasRole(Employer.class)) {
+			aux = true;
+		}
+
+		result = aux;
+
+		return result;
 	}
 
 	@Override
@@ -55,6 +66,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	@Override
 	public Job instantiate(final Request<Job> request) {
 		// TODO Auto-generated method stub
+		assert request != null;
 
 		Job result;
 		result = new Job();
@@ -75,14 +87,28 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		Calendar calendar;
-		Date minimumDeadline;
-
 		if (!errors.hasErrors("deadline")) {
+			Calendar calendar;
+			Date minimumDeadline;
 			calendar = new GregorianCalendar();
 			calendar.add(Calendar.DAY_OF_MONTH, 7);
 			minimumDeadline = calendar.getTime();
 			errors.state(request, entity.getDeadline().after(minimumDeadline), "deadline", "employer.job.form.error.invaliddeadline");
+		}
+
+		if (!errors.hasErrors("description")) {
+			Parameter p = this.repository.findParameters();
+			String spamWords = p.getSpamwords();
+			Double spamThreshold = p.getSpamthreshold();
+			String description = entity.getDescription();
+			errors.state(request, !parameterMethods.isSpam(description, spamWords, spamThreshold), "description", "employer.job.form.error.spamDescription");
+		}
+
+		if (!errors.hasErrors("reference")) {
+			Collection<Job> jobs = this.repository.findAllJobs();
+			String reference = entity.getReference();
+			boolean aux = jobs.stream().map(x -> x.getReference()).anyMatch(x -> x.equals(reference));
+			errors.state(request, !aux, "reference", "employer.job.form.error.referenceInUse");
 		}
 
 	}

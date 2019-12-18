@@ -5,4 +5,10 @@ employer.duty.form.label.title = Titulo
 employer.duty.form.label.percentage = Porcentage
 employer.duty.form.label.description =  Descripción
 
+employer.duty.form.button.update = Actualizar
+employer.duty.form.button.delete = Borrar
+employer.duty.form.button.create = Crear
+
 employer.duty.form.button.return = Volver
+
+employer.duty.form.error.jobInFinalMode = El trabajo esta publicado
