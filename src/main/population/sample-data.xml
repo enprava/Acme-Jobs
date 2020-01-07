@@ -348,6 +348,14 @@
 		<property name="userAccount" ref="employer2UserAccount"/>
 	</bean>
 	
+	<!-- Challenges2 -->
+	
+	<bean name="Challenge2_1" class="acme.entities.challenges2.Challenge2">
+		<property name="description" value="this is the challenge2 example"/>
+		<property name="moreInfo" value="http://www.example.com"/>
+		<property name="job" ref="job1"/>
+	</bean>
+	
 	<!-- Duties -->
 	
 	<bean name="Duty1" class="acme.entities.duties.Duty">
@@ -384,6 +392,8 @@
 		<property name="percentage" value="100"/>
 		<property name="job" ref="job4"/>
 	</bean>
+	
+	
 	<!-- Jobs -->
 	
 
@@ -503,7 +513,6 @@
 	 <bean id="application1" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title1"/>
 		<property name="status" value="rejected"/>
-		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/01/24 11:35"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill1, skill3"/>
@@ -515,7 +524,6 @@
 	<bean id="application2" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title2"/>
 		<property name="status" value="pending"/>
-		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/09/24 10:00"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill2"/>
@@ -527,7 +535,6 @@
 	<bean id="application3" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title3"/>
 		<property name="status" value="pending"/>
-		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/10/24 10:00"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill1"/>
@@ -539,7 +546,6 @@
 	<bean id="application4" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="title4"/>
 		<property name="status" value="accepted"/>
-		<property name="justification" value=""/>
 		<property name="creationMoment" value="2019/04/04 12:05"/>
 		<property name="statement" value="Lorem"/>
 		<property name="skills" value="skill4"/>
@@ -558,116 +564,6 @@
 		<property name="worker" ref="worker2Worker"/>
 		<property name="job" ref="job3"/>
 	</bean>
-
-	
-	<!-- Auditors -->
-           
-  <!-- Auditor1  -->
-  
-  <!-- <bean id="auditor1UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="auditor1"/>
-		<property name="password" value="auditor1"/>
-		<property name="enabled" value="true"/>
-		<property name="identity">
-			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Auditor"/>
-				<property name="surname" value="One"/>
-				<property name="email" value="auditor1@acme.com"/>
-			</bean>
-		</property>		
-		<property name="roles">
-			<list>
-				<ref bean="auditor1Auditor"/>
-				<ref bean="auditor1Authenticated"/>
-			</list>
-		</property>
-	</bean>	
-	
-	<bean name= "auditor1Auditor" class="acme.entities.roles.Auditor">
-		<property name="firm" value="firm1"/>
-		<property name="responsabiltyStatement" value="responsability statement1"/>
-		<property name="userAccount" ref="auditor1UserAccount"/>
-	</bean>
-	
-	<bean name= "auditor1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="auditor1UserAccount"/>
-	</bean>-->
-	
-	<!-- Auditor2  -->
-  
-  <!--  <bean id="auditor2UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="auditor2"/>
-		<property name="password" value="auditor2"/>
-		<property name="enabled" value="true"/>
-		<property name="identity">
-			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Auditor"/>
-				<property name="surname" value="Two"/>
-				<property name="email" value="auditor2@acme.com"/>
-			</bean>
-		</property>		
-		<property name="roles">
-			<list>
-				<ref bean="auditor2Auditor"/>
-				<ref bean="auditor2Authenticated"/>
-			</list>
-		</property>
-	</bean>	
-	
-	<bean name= "auditor2Auditor" class="acme.entities.roles.Auditor">
-		<property name="firm" value="firm2"/>
-		<property name="responsabiltyStatement" value="responsability statement2"/>
-		<property name="userAccount" ref="auditor2UserAccount"/>
-	</bean>
-	
-	<bean name= "auditor2Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="auditor2UserAccount"/>
-	</bean>-->
-	
-	<!-- Audits -->
-	
-
-	<!--
-	
-	<bean id="audit1" class="acme.entities.audits.Audit">
-		<property name="title" value="title1"/>
-		<property name="status" value="draft"/>
-		<property name="moment" value="2019/09/24 10:35"/>
-		<property name="body" value="Lorem"/>
-		<property name="auditor" ref="auditor1Auditor"/>
-	</bean>
-	
-	<bean id="audit2" class="acme.entities.audits.Audit">
-		<property name="title" value="title2"/>
-		<property name="status" value="draft"/>
-		<property name="moment" value="2019/08/16 10:35"/>
-		<property name="body" value="Ipsum"/>
-		<property name="auditor" ref="auditor1Auditor"/>
-	</bean>
-	
-	<bean id="audit3" class="acme.entities.audits.Audit">
-		<property name="title" value="title3"/>
-		<property name="status" value="published"/>
-		<property name="moment" value="2019/01/03 22:00"/>
-		<property name="body" value="Sit"/>
-		<property name="auditor" ref="auditor1Auditor"/>
-	</bean>
-	
-	<bean id="audit4" class="acme.entities.audits.Audit">
-		<property name="title" value="title4"/>
-		<property name="status" value="draft"/>
-		<property name="moment" value="2019/10/07 10:30"/>
-		<property name="body" value="Dolor"/>
-		<property name="auditor" ref="auditor2Auditor"/>
-	</bean>
-	
-	<bean id="audit5" class="acme.entities.audits.Audit">
-		<property name="title" value="title5"/>
-		<property name="status" value="published"/>
-		<property name="moment" value="2019/09/03 9:05"/>
-		<property name="body" value="Amet"/>
-		<property name="auditor" ref="auditor2Auditor"/>
-	</bean> -->
 	
 	
 </beans>

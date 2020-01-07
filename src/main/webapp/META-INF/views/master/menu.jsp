@@ -32,6 +32,7 @@
 			<acme:menu-suboption code="master.menu.announcement.announcement-list" action="/administrator/announcement/list"/>
 			<acme:menu-suboption code="master.menu.administrator.investor-record.list" action="/administrator/investor-record/list"/>
 			<acme:menu-suboption code="master.menu.challenge.list" action="/administrator/challenge/list"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard.show" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.company-records.create" action="/administrator/company-record/create" access="hasRole('Administrator')" />
 			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create" access="hasRole('Administrator')" />
 			<acme:menu-suboption code="master.menu.administrator.investor-record.create" action="/administrator/investor-record/create" access="hasRole('Administrator')" />

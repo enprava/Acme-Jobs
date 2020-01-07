@@ -13,8 +13,10 @@ employer.application.form.label.statement = Declaración
 employer.application.form.label.skills = Habilidades
 employer.application.form.label.qualifications = Cualificaciones
 employer.application.form.label.justification = Justificación
+employer.application.form.label.answerPasswordApp = Contraseña de la respuesta
 
 employer.application.form.button.update = Aceptar/Rechazar application
 employer.application.form.button.return = Volver
+employer.application.form.button.answer = Respuesta al challenge2 del trabajo al que se aplica
 
 employer.application.accept.form.error.invalidjustification = Si rechazas una aplicación, debes proporcionar una justificación

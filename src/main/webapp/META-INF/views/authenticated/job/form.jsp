@@ -10,6 +10,9 @@
     <acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo" />
     <acme:form-textarea code="authenticated.job.form.label.description" path="description" />
     <acme:form-submit method="get" code="authenticated.job.form.label.duties" action="/authenticated/duty/list-for-job?jobId=${id}"/> 
+    <jstl:if test="${command != 'create' && hasChallenge2 == true}">
+    	<acme:form-submit method="get" code="authenticated.job.form.button.challenges2" action="/authenticated/challenge2/show?jobId=${id}"/>
+    </jstl:if>
     
     <acme:form-return code="authenticated.job.form.button.return" />
 </acme:form>

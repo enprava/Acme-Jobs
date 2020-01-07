@@ -1,0 +1,7 @@
+employer.answer.form.label.answer = Respuesta
+employer.answer.form.label.password = Contraseña
+
+employer.answer.form.button.return = Volver
+
+employer.answer.form.error.answerNeeded = Si introduces una contraseña, debes introducir también una descripción
+employer.answer.form.error.incorrectPassword = La contraseña debe contener 3 dígitos, 3 letras y 3 símbolos de puntuación

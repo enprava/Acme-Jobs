@@ -32,7 +32,15 @@ public class WorkerJobShowService2 implements AbstractShowService<Worker, Job> {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		int appId;
+		appId = request.getModel().getInteger("applicationId");
+		Application aux = this.repository.findOneJobByApplicationId(appId);
+		int id = aux.getJob().getId();
+		if (this.repository.findOneChallenge2ByJobId(id) != null) {
+			model.setAttribute("hasChallenge2", true);
+		} else {
+			model.setAttribute("hasChallenge2", false);
+		}
 		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 

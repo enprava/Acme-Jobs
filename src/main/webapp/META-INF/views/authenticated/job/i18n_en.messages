@@ -11,3 +11,4 @@ authenticated.job.form.label.description = Description
 
 authenticated.job.form.label.duties = Duties
 authenticated.job.form.button.return = Return
+authenticated.job.form.button.challenges2 = See associated Challenge2

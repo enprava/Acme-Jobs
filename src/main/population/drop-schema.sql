@@ -7,6 +7,10 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+    alter table `answer` 
+       drop 
+       foreign key `FKqiviwk3b1rfidhy9cajsblq37`;
+
     alter table `application` 
        drop 
        foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
@@ -26,6 +30,10 @@
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
+
+    alter table `challenge2` 
+       drop 
+       foreign key `FKaunu1osia3ju26yt99mdjq15p`;
 
     alter table `consumer` 
        drop 
@@ -77,6 +85,8 @@
 
     drop table if exists `anonymous`;
 
+    drop table if exists `answer`;
+
     drop table if exists `application`;
 
     drop table if exists `audit_record`;
@@ -86,6 +96,8 @@
     drop table if exists `authenticated`;
 
     drop table if exists `challenge`;
+
+    drop table if exists `challenge2`;
 
     drop table if exists `company_record`;
 

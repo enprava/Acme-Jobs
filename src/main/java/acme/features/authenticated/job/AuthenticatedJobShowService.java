@@ -46,6 +46,14 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert entity != null;
 		assert model != null;
 
+		int id;
+		id = request.getModel().getInteger("id");
+		if (this.repository.findOneChallenge2ByJobId(id) != null) {
+			model.setAttribute("hasChallenge2", true);
+		} else {
+			model.setAttribute("hasChallenge2", false);
+		}
+
 		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 

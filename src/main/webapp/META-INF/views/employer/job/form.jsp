@@ -15,7 +15,14 @@
     	<acme:form-option code="employer.job.form.label.false" value="false"/>
     	<acme:form-option code="employer.job.form.label.true" value="true"/>
     </acme:form-select>
+    
     </jstl:if>
+    <jstl:if test="${command == 'create'}">
+  		<h3><acme:message code="employer.job.form.label.infoChallenge2"/></h3>
+  		<acme:form-textarea code="employer.job.form.label.challenge2Description" path="challenge2Description" />
+  		<acme:form-url code="employer.job.form.label.challenge2MoreInfo" path="challenge2MoreInfo" />
+  		
+  	</jstl:if>
     
     <jstl:if test="${command != 'create'}">
     <acme:form-submit code="employer.job.form.button.createDuties" action="/employer/duty/create?jobId=${id}"/>
@@ -23,6 +30,10 @@
     
     <jstl:if test="${command != 'create'}">
     <acme:form-submit method="get" code="employer.job.form.button.duties" action="/employer/duty/list-for-job?jobId=${id}"/>
+    </jstl:if>
+    
+    <jstl:if test="${command != 'create' && hasChallenge2 == true}">
+    <acme:form-submit method="get" code="employer.job.form.button.challenges2" action="/employer/challenge2/show?jobId=${id}"/>
     </jstl:if>
     
     <acme:form-submit test="${command == 'show'}"
@@ -36,6 +47,7 @@
   	<acme:form-submit method="post" test="${command == 'create'}"
   		code="employer.job.form.button.create"
   		action="/employer/job/create"/>
+  
   		
   	<acme:form-submit test="${command == 'update'}"
   		code="employer.job.form.button.update"

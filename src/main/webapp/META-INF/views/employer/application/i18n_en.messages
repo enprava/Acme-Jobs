@@ -13,8 +13,9 @@ employer.application.form.label.statement = Statement
 employer.application.form.label.skills = Skills
 employer.application.form.label.qualifications = Qualifications
 employer.application.form.label.justification = Justification
+employer.application.form.label.answerPasswordApp = Answer's password
 
 employer.application.form.button.update = Accept/Reject application
 employer.application.form.button.return = Return
-
+employer.application.form.button.answer = Answer to the job's associated challenge2
 employer.application.accept.form.error.invalidjustification = If you reject an application, a justification must be provided

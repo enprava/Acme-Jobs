@@ -22,10 +22,12 @@
 	<acme:form-textarea  code="employer.application.form.label.skills" path="skills" readonly="true"/>
 	<acme:form-textbox  code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
 	
+	
 
-	
-	
-	
+	<jstl:if test="${command != 'create' && hasAnswer == true}">
+	<acme:form-textbox  code="employer.application.form.label.answerPasswordApp" path="answerPasswordApp" readonly="true"/>
+    <acme:form-submit method="get" code="employer.application.form.button.answer" action="/employer/answer/show?appId=${id}"/>
+    </jstl:if>
 	
 	<jstl:if test="${status == 'pending' && command == 'show'}">
     <acme:form-select code="employer.application.form.label.status" path="status">

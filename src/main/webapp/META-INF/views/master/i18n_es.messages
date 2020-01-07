@@ -42,6 +42,7 @@ master.menu.announcement.announcement-list = Lista de anuncios
 master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.shutdown = Parar el sistema
+master.menu.administrator.dashboard.show = Tablero
 master.menu.administrator.showParameter = Mostrar parametros de personalizacion
 master.menu.administrator.investor-record.list = Lista de Declaraciones de inversion
 master.menu.administrator.announcement.create = Crear un Anuncio
@@ -115,7 +116,7 @@ master.footer.label.license = Licencia
 master.footer.title.social = Social
 master.footer.label.linked-in = Linked-In
 master.footer.label.twitter = Twitter
-master.footer.title.languages = Lenguages
+master.footer.title.languages = Lenguajes
 master.footer.label.english = Inglés
 master.footer.label.spanish = Español
 

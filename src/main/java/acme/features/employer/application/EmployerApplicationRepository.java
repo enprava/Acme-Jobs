@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.answers.Answer;
 import acme.entities.applications.Application;
 import acme.framework.repositories.AbstractRepository;
 
@@ -17,5 +18,8 @@ public interface EmployerApplicationRepository extends AbstractRepository {
 
 	@Query("select a from Application a join a.job.employer e where e.id= ?1")
 	Collection<Application> findManyByEmployerId(int employerId);
+
+	@Query("select a from Answer a where a.application.id = ?1")
+	Answer findOneAnswerByApplicationId(int appId);
 
 }

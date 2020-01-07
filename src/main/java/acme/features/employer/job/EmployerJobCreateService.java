@@ -7,8 +7,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.util.UrlUtils;
 import org.springframework.stereotype.Service;
 
+import acme.entities.challenges2.Challenge2;
 import acme.entities.jobs.Job;
 import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
@@ -111,6 +113,14 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			errors.state(request, !aux, "reference", "employer.job.form.error.referenceInUse");
 		}
 
+		errors.state(request, !(request.getModel().getAttribute("challenge2MoreInfo").toString().trim() != "" && request.getModel().getAttribute("challenge2Description").toString().trim() == ""), "challenge2Description",
+			"employer.challenge2.form.error.descriptionNeeded");
+		errors.state(request, !(request.getModel().getAttribute("challenge2Description").toString().length() >= 1000), "challenge2Description", "employer.challenge2.form.error.descriptionTooLong");
+		if (request.getModel().getAttribute("challenge2MoreInfo") != null && request.getModel().getAttribute("challenge2MoreInfo").toString().trim() != "") {
+			Boolean c2MIValid = UrlUtils.isAbsoluteUrl(request.getModel().getAttribute("challenge2MoreInfo").toString());
+			errors.state(request, c2MIValid, "challenge2MoreInfo", "employer.challenge2.form.error.invalidUrl");
+		}
+
 	}
 
 	@Override
@@ -120,8 +130,19 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 
 		entity.setFinalMode(false);
-
 		this.repository.save(entity);
+
+		Challenge2 c2 = new Challenge2();
+
+		String aux1 = request.getModel().getAttribute("challenge2Description").toString();
+		String aux2 = request.getModel().getAttribute("challenge2MoreInfo").toString();
+
+		if (request.getModel().getAttribute("challenge2Description") != null && aux1.trim() != "") {
+			c2.setDescription(aux1);
+			c2.setMoreInfo(aux2);
+			c2.setJob(entity);
+			this.repository.save(c2);
+		}
 
 	}
 

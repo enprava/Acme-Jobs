@@ -1,0 +1,8 @@
+worker.answer.form.label.answer = Answer
+worker.answer.form.label.password = Password
+
+worker.answer.form.button.return = Return
+
+worker.answer.form.error.answerNeeded = If you introduce a password, you must introduce an answer
+worker.answer.form.error.incorrectPassword = The password must have 3 digits, 3 letters and 3 punctuation symbols
+

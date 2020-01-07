@@ -16,7 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	
+	<acme:form-hidden path="hasAnswer"/>
+	<acme:form-hidden path="hasChallenge2"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textarea code="worker.application.form.label.status" path="status" readonly="true"/>
 		<acme:form-moment code="worker.application.form.label.creationMoment" path="creationMoment" readonly="true"/>
@@ -26,6 +27,17 @@
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications"/>
 	<acme:form-hidden path="jobId"/>
+	
+	<jstl:if test="${command != 'create' && hasAnswer == true}">
+    <acme:form-submit method="get" code="employer.application.form.button.answer" action="/worker/answer/show?appId=${id}"/>
+    </jstl:if>
+    
+	<jstl:if test="${command == 'create' && hasChallenge2 == true}">
+		<acme:form-textbox code="worker.application.form.label.answerPasswordApp" path="answerPasswordApp"/>
+		<h3><acme:message code="worker.application.form.label.infoAnswer"/></h3>
+		<acme:form-textarea code="worker.application.form.label.answerAnswer" path="answerAnswer"/>
+		<acme:form-password code="worker.application.form.label.answerPassword" path="answerPassword"/>
+	</jstl:if>
 	
 	<acme:form-submit test= "${command== 'show' }"
 		method="get" code="worker.application.form.label.jobs" action="/worker/job/show_mine?applicationId=${id}"/>
