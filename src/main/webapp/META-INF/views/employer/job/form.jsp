@@ -17,12 +17,22 @@
     </acme:form-select>
     </jstl:if>
     
+    <jstl:if test="${command == 'create'}">
+    	<acme:message code="employer.job.form.label.shater"/>
+    	<acme:form-textbox code="employer.job.form.label.shaterDescription" path="sdescription"/>
+    	<acme:form-url code="employer.job.form.label.shaterTrackId" path="trackId"/>
+    </jstl:if>
+    
     <jstl:if test="${command != 'create'}">
     <acme:form-submit code="employer.job.form.button.createDuties" action="/employer/duty/create?jobId=${id}"/>
     </jstl:if>
     
     <jstl:if test="${command != 'create'}">
     <acme:form-submit method="get" code="employer.job.form.button.duties" action="/employer/duty/list-for-job?jobId=${id}"/>
+    </jstl:if>
+    
+    <jstl:if test="${command != 'create' && hasShater == true}">
+    <acme:form-submit method="get" code="employer.job.form.button.shater" action="/employer/shater/show?jobId=${id}"/>
     </jstl:if>
     
     <acme:form-submit test="${command == 'show'}"

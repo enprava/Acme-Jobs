@@ -11,3 +11,14 @@ worker.application.form.label.skills = Habilidades
 worker.application.form.label.qualifications = Cualificaciones
 
 worker.application.form.button.create = Crear
+
+worker.application.form.label.answer= Datos de la respuesta
+worker.application.form.label.answerAnswer= Respuesta
+worker.application.form.label.answerPassword= Contraseña
+worker.application.form.label.answerTrackId= Id del track
+
+worker.application.form.error.answerAnswer= No debe estar en blanco
+worker.application.form.error.password= La contraseña debe contener al menos un digito, un numero y un simbolo y al menos tener longitud 10
+worker.job.form.error.invalidAnswer= Respuesta incorrecta
+
+worker.application.form.button.return= Volver

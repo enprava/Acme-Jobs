@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
+import acme.entities.shaters.Shater;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -25,4 +26,7 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select w from Worker w where w.id= ?1")
 	Worker findWorkerById(int workerId);
+
+	@Query("select s from Shater s where s.job.id= ?1")
+	Shater findShaterByJobId(int jobId);
 }

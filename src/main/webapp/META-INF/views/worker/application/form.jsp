@@ -26,12 +26,24 @@
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications"/>
 	<acme:form-hidden path="jobId"/>
+	<acme:form-hidden path="hasChallenge"/>
 	
 	<acme:form-submit test= "${command== 'show' }"
 		method="get" code="worker.application.form.label.jobs" action="/worker/job/show_mine?applicationId=${id}"/>
-	
-	<acme:form-submit test= "${command== 'create' }"
+		
+	<jstl:if test="${command == 'create' && hasShater == true}">
+    	<acme:message code="worker.application.form.label.answer"/>
+    	<acme:form-textarea code="worker.application.form.label.answerAnswer" path="answer"/>
+    	<acme:form-textarea code="worker.application.form.label.answerPassword" path="password"/>
+    	<acme:form-textarea code="worker.application.form.label.answerTrackId" path="trackId"/>
+    </jstl:if>
+    
+    <acme:form-submit method="post" test= "${command== 'create' }"
 		code="worker.application.form.button.create" action="/worker/application/create"/>
+    
+    <jstl:if test="${command != 'create' && hasAnswer == true}">
+   		<acme:form-submit method="get" code="worker.application.form.button.answer" action="/worker/answer/show?applicationId=${id}"/>
+    </jstl:if>	
 	
-	<acme:form-return code="authenticated.challenge.form.button.return"/>
+	<acme:form-return code="worker.application.form.button.return"/>
 </acme:form>

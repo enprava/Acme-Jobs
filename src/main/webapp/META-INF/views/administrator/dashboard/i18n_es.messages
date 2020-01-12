@@ -1,0 +1,5 @@
+administrator.dashboard.form.label.jobsWithShater= Ratio de trabajos con shater
+administrator.dashboard.form.label.shaterWithTrackId= Ratio de shaters con id de track
+administrator.dashboard.form.label.applicationsProtected= Ratio de aplicaciones con contraseña
+
+administrator.dashboard.form.button.return= Volver

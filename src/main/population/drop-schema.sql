@@ -7,6 +7,10 @@
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
 
+    alter table `answer` 
+       drop 
+       foreign key `FKqiviwk3b1rfidhy9cajsblq37`;
+
     alter table `application` 
        drop 
        foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
@@ -67,6 +71,10 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
+    alter table `shater` 
+       drop 
+       foreign key `FK42y2ub4ogu0b1o1pkg6tm8uso`;
+
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
@@ -76,6 +84,8 @@
     drop table if exists `announcement`;
 
     drop table if exists `anonymous`;
+
+    drop table if exists `answer`;
 
     drop table if exists `application`;
 
@@ -116,6 +126,8 @@
     drop table if exists `provider`;
 
     drop table if exists `request`;
+
+    drop table if exists `shater`;
 
     drop table if exists `user_account`;
 

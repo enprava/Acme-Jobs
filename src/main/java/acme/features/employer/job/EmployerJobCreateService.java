@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.jobs.Job;
 import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
+import acme.entities.shaters.Shater;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -111,6 +112,21 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			errors.state(request, !aux, "reference", "employer.job.form.error.referenceInUse");
 		}
 
+		if (!request.getModel().getString("sdescription").isEmpty() || !request.getModel().getString("trackId").isEmpty()) {
+
+			if (!errors.hasErrors("description")) {
+				String description = request.getModel().getAttribute("sdescription").toString();
+				boolean aux = description.length() >= 256;
+				errors.state(request, !aux, "description", "employer.job.form.error.shaterDescription");
+			}
+
+			if (!errors.hasErrors("shaterDescription")) {
+				String description = request.getModel().getAttribute("sdescription").toString();
+				boolean aux = description.length() == 0;
+				errors.state(request, !aux, "description", "employer.job.form.error.shaterDescription.blank");
+			}
+		}
+
 	}
 
 	@Override
@@ -120,8 +136,19 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 
 		entity.setFinalMode(false);
-
 		this.repository.save(entity);
+
+		if (!request.getModel().getAttribute("sdescription").toString().isEmpty()) {
+			Shater shater = new Shater();
+
+			String description = request.getModel().getAttribute("sdescription").toString();
+			String trackId = request.getModel().getAttribute("trackId").toString();
+
+			shater.setDescription(description);
+			shater.setTrackId(trackId);
+			shater.setJob(entity);
+			this.repository.save(shater);
+		}
 
 	}
 

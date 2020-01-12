@@ -23,6 +23,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `answer` (
+       `id` integer not null,
+        `version` integer not null,
+        `answer` varchar(255),
+        `password` varchar(255),
+        `track_id` varchar(255),
+        `application_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `application` (
        `id` integer not null,
         `version` integer not null,
@@ -233,6 +243,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `shater` (
+       `id` integer not null,
+        `version` integer not null,
+        `description` varchar(255),
+        `track_id` varchar(255),
+        `job_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -263,6 +282,8 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 
     alter table `descriptor_duty` 
        add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
+create index IDXis5k42gjhev7mhqajhcxlw4dv on `duty` (`percentage`);
+create index IDXrr7tnj8h1bfv46pnsq6lwvxqd on `job` (`deadline`, `final_mode`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
@@ -285,6 +306,11 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `answer` 
+       add constraint `FKqiviwk3b1rfidhy9cajsblq37` 
+       foreign key (`application_id`) 
+       references `application` (`id`);
 
     alter table `application` 
        add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
@@ -360,6 +386,11 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `shater` 
+       add constraint `FK42y2ub4ogu0b1o1pkg6tm8uso` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 

@@ -4,10 +4,20 @@ worker.application.list.label.status = Status
 
 worker.application.form.label.jobs = Applied job
 worker.application.form.label.reference-number = Reference number
-worker.application.form.label.creation-moment = Creation moment
+worker.application.form.label.creationMoment = Creation moment
 worker.application.form.label.status = Status
 worker.application.form.label.statement = Statement
 worker.application.form.label.skills = Skills
 worker.application.form.label.qualifications = Qualifications
 
 worker.application.form.button.create = Create
+
+worker.application.form.label.answer= Answer information
+worker.application.form.label.answerAnswer= Answer
+worker.application.form.label.answerPassword= Password
+worker.application.form.label.answerTrackId= Track id
+
+worker.application.form.error.answerAnswer= Must not be blank
+worker.application.form.button.return= Return
+worker.application.form.error.password= Password must contain at least a numbers, a char and a symbols with min lenght 10
+worker.job.form.error.invalidAnswer= Invalid answer

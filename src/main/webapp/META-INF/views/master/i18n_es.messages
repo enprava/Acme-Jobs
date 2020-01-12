@@ -46,6 +46,7 @@ master.menu.administrator.showParameter = Mostrar parametros de personalizacion
 master.menu.administrator.investor-record.list = Lista de Declaraciones de inversion
 master.menu.administrator.announcement.create = Crear un Anuncio
 master.menu.administrator.investor-record.create = Crear una Declaración de inversion
+master.menu.dashboard= Tablas
 
 # master.menu.provider ########################################################
 

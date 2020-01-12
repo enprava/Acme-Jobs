@@ -23,3 +23,11 @@ employer.job.form.error.invaliddeadline = Invalid Deadline
 employer.job.form.error.spamDescription = The description is Spam
 employer.job.form.error.referenceInUse = The reference is already in use
 employer.job.form.error.dutiesNotSum100 = The duties' percentage must sum 100
+employer.job.form.error.shaterDescription= The description must be smaller than 30 characters
+employer.job.form.error.shaterDescription.blank= Must not be blank
+
+employer.job.form.label.shater= Shater information (Optional)
+employer.job.form.label.shaterDescription= Description
+employer.job.form.label.shaterTrackId= Track id
+employer.job.form.button.shater= Shater
+

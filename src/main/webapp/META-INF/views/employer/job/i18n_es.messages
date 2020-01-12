@@ -23,3 +23,11 @@ employer.job.form.error.invaliddeadline = Fecha de fin invalida
 employer.job.form.error.spamDescription = La descripción es Spam
 employer.job.form.error.referenceInUse = La referencia esta en uso
 employer.job.form.error.dutiesNotSum100 = El porcentaje total de las responsabilidades debe sumar 100
+employer.job.form.error.shaterDescription= La descripcion debe tener un numero menor a 30 caracteres
+employer.job.form.error.shaterDescription.blank= No puede estar en blanco
+
+
+employer.job.form.label.shater= Datos del shater
+employer.job.form.label.shaterDescription= Descripcion
+employer.job.form.label.shaterTrackId= Id del track
+employer.job.form.button.shater= Shater

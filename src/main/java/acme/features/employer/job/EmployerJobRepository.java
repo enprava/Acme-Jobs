@@ -11,6 +11,7 @@ import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
+import acme.entities.shaters.Shater;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -39,5 +40,8 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j")
 	Collection<Job> findAllJobs();
+
+	@Query("select s from Shater s where s.job.id= ?1")
+	Shater findShaterByJobId(int jobId);
 
 }

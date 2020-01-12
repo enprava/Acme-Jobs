@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.answer.Answer;
 import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
@@ -58,6 +59,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert model != null;
 
 		model.setAttribute("jobId", request.getModel().getInteger("jobId"));
+		int id;
+		id = request.getModel().getInteger("jobId");
+		if (this.repository.findShaterByJobId(id) != null) {
+			model.setAttribute("hasShater", true);
+		} else {
+			model.setAttribute("hasShater", false);
+		}
 
 		request.unbind(entity, model, "referenceNumber", "statement", "skills", "qualifications");
 
@@ -96,34 +104,33 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		if (request.getModel().getBoolean("hasShater")) {
+			errors.state(request, !(request.getModel().getAttribute("password").toString().trim() != "" && request.getModel().getAttribute("trackId").toString().trim() == ""), "trackId", "worker.job.form.error.invalidTrackId");
+			errors.state(request, !(request.getModel().getAttribute("password").toString().trim() != "" && request.getModel().getAttribute("answer").toString().trim() == ""), "answer", "worker.job.form.error.invalidAnswer");
+			errors.state(request, request.getModel().getString("password").matches("^(?=(?:.*\\d){1,})(?=(?:.*[a-zA-Z]){1,})(?=(?:.*\\p{Punct}){1,}).{10,}$|^$"), "password", "worker.application.form.error.password");
+		}
 	}
 
 	@Override
 	public void create(final Request<Application> request, final Application entity) {
-		//		Date moment;
-		//
-		//		moment = new Date(System.currentTimeMillis() - 1);
-		//		entity.setCreationMoment(moment);
-		//
-		//		Job job;
-		//		int jobId;
-		//		jobId = request.getModel().getInteger("jobId");
-		//		job = this.repository.findJobPublished(jobId);
-		//		entity.setJob(job);
-		//
-		//		TipoStatus status = TipoStatus.pending;
-		//		entity.setStatus(status);
-		//
-		//		Worker worker;
-		//		Principal principal;
-		//		Integer workerId;
-		//		principal = request.getPrincipal();
-		//		workerId = principal.getAccountId();
-		//		worker = this.repository.findWorkerById(workerId);
-		//		entity.setWorker(worker);
+
 		assert request != null;
 		assert entity != null;
 
 		this.repository.save(entity);
+
+		if (request.getModel().getBoolean("hasShater")) {
+			String answer = request.getModel().getAttribute("answer").toString();
+			String password = request.getModel().getAttribute("password").toString();
+			Answer ans = new Answer();
+
+			if (request.getModel().getAttribute("answer") != null && answer.trim() != "") {
+				ans.setAnswer(answer);
+				ans.setPassword(password);
+				ans.setApplication(entity);
+
+				this.repository.save(ans);
+			}
+		}
 	}
 }

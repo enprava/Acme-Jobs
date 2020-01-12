@@ -45,6 +45,13 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
+		int jobId = request.getModel().getInteger("id");
+		if (this.repository.findShaterByJobId(jobId) != null) {
+			model.setAttribute("hasShater", true);
+		} else {
+			model.setAttribute("hasShater", false);
+		}
+
 		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 
