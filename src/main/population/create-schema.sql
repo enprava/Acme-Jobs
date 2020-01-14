@@ -23,6 +23,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `answer` (
+       `id` integer not null,
+        `version` integer not null,
+        `answer` varchar(255),
+        `password` varchar(255),
+        `track_id` varchar(255),
+        `application_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `application` (
        `id` integer not null,
         `version` integer not null,
@@ -117,6 +127,15 @@
     create table `descriptor_duty` (
        `descriptor_id` integer not null,
         `duties_id` integer not null
+    ) engine=InnoDB;
+
+    create table `duboa` (
+       `id` integer not null,
+        `version` integer not null,
+        `text` varchar(255),
+        `track_id` varchar(255),
+        `job_id` integer not null,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `duty` (
@@ -261,8 +280,16 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 
+    alter table `answer` 
+       add constraint UK_efdfs98q7pj2ux1blpijk6wv1 unique (`application_id`);
+
     alter table `descriptor_duty` 
        add constraint UK_kvr5rclgwa51d625rmx13ke96 unique (`duties_id`);
+
+    alter table `duboa` 
+       add constraint UK_exi92qc35yhscaxi5jpbrahr9 unique (`job_id`);
+create index IDXis5k42gjhev7mhqajhcxlw4dv on `duty` (`percentage`);
+create index IDXrr7tnj8h1bfv46pnsq6lwvxqd on `job` (`deadline`, `final_mode`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
@@ -285,6 +312,11 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `answer` 
+       add constraint `FKqiviwk3b1rfidhy9cajsblq37` 
+       foreign key (`application_id`) 
+       references `application` (`id`);
 
     alter table `application` 
        add constraint `FKoa6p4s2oyy7tf80xwc4r04vh6` 
@@ -325,6 +357,11 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint `FKqitedkrksd2w8qyp1fp5eao9f` 
        foreign key (`descriptor_id`) 
        references `descriptor` (`id`);
+
+    alter table `duboa` 
+       add constraint `FKem4wvjgce63ps4q3sycg0jinx` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `duty` 
        add constraint `FKs2uoxh4i5ya8ptyefae60iao1` 

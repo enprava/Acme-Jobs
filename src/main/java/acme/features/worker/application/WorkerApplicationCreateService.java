@@ -4,8 +4,10 @@ package acme.features.worker.application;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.util.UrlUtils;
 import org.springframework.stereotype.Service;
 
+import acme.entities.answers.Answer;
 import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
@@ -58,6 +60,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert model != null;
 
 		model.setAttribute("jobId", request.getModel().getInteger("jobId"));
+		int id;
+		id = request.getModel().getInteger("jobId");
+		if (this.repository.findDuboaByJobId(id) != null) {
+			model.setAttribute("hasDuboa", true);
+		} else {
+			model.setAttribute("hasDuboa", false);
+		}
 
 		request.unbind(entity, model, "referenceNumber", "statement", "skills", "qualifications");
 
@@ -96,34 +105,42 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		if (request.getModel().getBoolean("hasDuboa")) {
+			errors.state(request, !(request.getModel().getAttribute("password").toString().trim() != "" && request.getModel().getAttribute("answer").toString().trim() == ""), "answer", "worker.job.form.error.invalidAnswer");
+			errors.state(request, !(request.getModel().getAttribute("password").toString().trim() != "" && request.getModel().getAttribute("trackId").toString().trim() == ""), "trackId", "worker.job.form.error.invalidTrackId");
+			errors.state(request, !(request.getModel().getAttribute("trackId").toString().trim() != "" && request.getModel().getAttribute("answer").toString().trim() == ""), "trackId", "worker.job.form.error.invalidTrackId");
+
+			errors.state(request, request.getModel().getString("password").matches("^(?=(?:.*\\d){1,})(?=(?:.*[a-zA-Z]){1,})(?=(?:.*\\p{Punct}){1,}).{10,}$|^$"), "password", "worker.application.form.error.invalidPassword");
+			if (request.getModel().getAttribute("trackId") != null && request.getModel().getAttribute("trackId").toString().trim() != "") {
+				errors.state(request, UrlUtils.isAbsoluteUrl(request.getModel().getAttribute("trackId").toString()), "trackId", "worker.application.form.error.invalidTrackId");
+
+			}
+
+		}
 	}
 
 	@Override
 	public void create(final Request<Application> request, final Application entity) {
-		//		Date moment;
-		//
-		//		moment = new Date(System.currentTimeMillis() - 1);
-		//		entity.setCreationMoment(moment);
-		//
-		//		Job job;
-		//		int jobId;
-		//		jobId = request.getModel().getInteger("jobId");
-		//		job = this.repository.findJobPublished(jobId);
-		//		entity.setJob(job);
-		//
-		//		TipoStatus status = TipoStatus.pending;
-		//		entity.setStatus(status);
-		//
-		//		Worker worker;
-		//		Principal principal;
-		//		Integer workerId;
-		//		principal = request.getPrincipal();
-		//		workerId = principal.getAccountId();
-		//		worker = this.repository.findWorkerById(workerId);
-		//		entity.setWorker(worker);
+
 		assert request != null;
 		assert entity != null;
 
 		this.repository.save(entity);
+
+		if (request.getModel().getBoolean("hasDuboa")) {
+			if (!request.getModel().getAttribute("answer").toString().isEmpty()) {
+				Answer a = new Answer();
+
+				String aux = request.getModel().getAttribute("answer").toString();
+				String aux2 = request.getModel().getAttribute("password").toString();
+				String aux3 = request.getModel().getAttribute("trackId").toString();
+
+				a.setAnswer(aux);
+				a.setPassword(aux2);
+				a.setTrackId(aux3);
+				a.setApplication(entity);
+				this.repository.save(a);
+			}
+		}
 	}
 }

@@ -11,3 +11,14 @@ worker.application.form.label.skills = Habilidades
 worker.application.form.label.qualifications = Cualificaciones
 
 worker.application.form.button.create = Crear
+
+worker.application.label.form.answer.password = Contraseña
+worker.application.label.form.answer.answer = Respuesta
+worker.application.label.form.answer.trackId = TrackId
+
+worker.job.form.error.invalidAnswer = No se puede crear una Respuesta sin respuesta	
+worker.application.form.error.invalidPassword = Contraseña inválida
+
+worker.application.form.label.answer = Respuesta
+worker.application.form.error.invalidTrackId = Url no válida
+worker.job.form.error.invalidTrackId = Es necesario incluir un trackId para poner una contraseña

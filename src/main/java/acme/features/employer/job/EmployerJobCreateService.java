@@ -7,8 +7,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.util.UrlUtils;
 import org.springframework.stereotype.Service;
 
+import acme.entities.duboas.Duboa;
 import acme.entities.jobs.Job;
 import acme.entities.parameters.Parameter;
 import acme.entities.roles.Employer;
@@ -111,6 +113,18 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			errors.state(request, !aux, "reference", "employer.job.form.error.referenceInUse");
 		}
 
+		if (!errors.hasErrors("text")) {
+
+			Job job = this.repository.findOneJobById(request.getModel().getInteger("id"));
+
+			errors.state(request, !(request.getModel().getAttribute("text").toString().isEmpty() && !request.getModel().getAttribute("trackId").toString().isEmpty()), "text", "employer.job.form.error.invalidDuboa");
+		}
+
+		if (request.getModel().getAttribute("trackId") != null && request.getModel().getAttribute("trackId").toString().trim() != "") {
+			errors.state(request, UrlUtils.isAbsoluteUrl(request.getModel().getAttribute("trackId").toString()), "trackId", "employer.job.form.error.invalidTrackId");
+
+		}
+
 	}
 
 	@Override
@@ -122,6 +136,18 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		entity.setFinalMode(false);
 
 		this.repository.save(entity);
+
+		if (!request.getModel().getAttribute("text").toString().isEmpty()) {
+			Duboa c2 = new Duboa();
+
+			String aux = request.getModel().getAttribute("text").toString();
+			String aux2 = request.getModel().getAttribute("trackId").toString();
+
+			c2.setText(aux);
+			c2.setTrackId(aux2);
+			c2.setJob(entity);
+			this.repository.save(c2);
+		}
 
 	}
 

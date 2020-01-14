@@ -23,3 +23,10 @@ employer.job.form.error.invaliddeadline = Invalid Deadline
 employer.job.form.error.spamDescription = The description is Spam
 employer.job.form.error.referenceInUse = The reference is already in use
 employer.job.form.error.dutiesNotSum100 = The duties' percentage must sum 100
+
+employer.job.label.form.duboa.text = Duboa Description	
+employer.job.label.form.duboa.trackId = TrackId
+employer.job.form.button.duboa = Duboa
+
+employer.job.form.error.invalidTrackId = TrackId not valid
+employer.job.form.error.invalidDuboa = You can not create a Duboa without description

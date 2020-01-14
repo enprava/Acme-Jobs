@@ -26,12 +26,28 @@
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications"/>
 	<acme:form-hidden path="jobId"/>
+	<acme:form-hidden path="hasDuboa"/>
+	<acme:form-hidden path="hasAnswer"/>
 	
+	<jstl:if test="${command == 'create' && hasDuboa==true }"> 
+    
+    <acme:form-textarea code="worker.application.label.form.answer.answer" path="answer"/>
+    <acme:form-password code="worker.application.label.form.answer.password" path="password"/>
+    <acme:form-url code="worker.application.label.form.answer.trackId" path="trackId"/>
+    </jstl:if> 
+
+	
+    
 	<acme:form-submit test= "${command== 'show' }"
 		method="get" code="worker.application.form.label.jobs" action="/worker/job/show_mine?applicationId=${id}"/>
+		
+		<acme:form-submit test= "${command== 'show' && hasAnswer }"
+		method="get" code="worker.application.form.label.answer" action="/worker/answer/show?applicationId=${id}"/>
 	
 	<acme:form-submit test= "${command== 'create' }"
 		code="worker.application.form.button.create" action="/worker/application/create"/>
+		
+		
 	
 	<acme:form-return code="authenticated.challenge.form.button.return"/>
 </acme:form>

@@ -42,6 +42,13 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
+		int applicationId = request.getModel().getInteger("id");
+		if (this.repository.findAnswerByApplicationId(applicationId) != null) {
+			model.setAttribute("hasAnswer", true);
+		} else {
+			model.setAttribute("hasAnswer", false);
+		}
+
 		request.unbind(entity, model, "referenceNumber", "creationMoment", "status", "statement", "skills", "qualifications", "worker", "job");
 
 	}

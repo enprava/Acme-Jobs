@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Application;
+import acme.entities.duboas.Duboa;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.parameters.Parameter;
@@ -40,4 +41,6 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j")
 	Collection<Job> findAllJobs();
 
+	@Query("select d from Duboa d where d.job.id = ?1")
+	Duboa findDuboaByJobId(int jobId);
 }

@@ -1,0 +1,4 @@
+administrator.dashboard.form.label.jobsWithDuboa = Ratio de trabajos con duboa
+administrator.dashboard.form.label.duboaWithTrackId = Ratio de duboa con trackId
+administrator.dashboard.form.label.applicationsWithPassword = Ratio de aplicaciones con contraseña
+administrator.dashboard.form.button.return = Volver

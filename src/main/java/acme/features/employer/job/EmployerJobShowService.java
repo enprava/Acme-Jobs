@@ -45,6 +45,13 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
+		int jobId = request.getModel().getInteger("id");
+		if (this.repository.findDuboaByJobId(jobId) != null) {
+			model.setAttribute("hasDuboa", true);
+		} else {
+			model.setAttribute("hasDuboa", false);
+		}
+
 		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 
